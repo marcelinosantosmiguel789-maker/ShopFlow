@@ -8,5 +8,6 @@ from Infrastructure.Database.database import Base
 class CarrinhoModel(Base):
     __tablename__ = "carrinhos"
 
-    usuarioId: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
+    usuarioId: Mapped[int] = mapped_column(nullable=False,autoincrement=True)
     itens: Mapped[str] = mapped_column(String(255), nullable=True)
