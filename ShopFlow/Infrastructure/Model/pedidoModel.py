@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from sqlalchemy import ForeignKey, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from Infrastructure.Model.itemPedidoModel import itemPedidoModel
+from Infrastructure.Model.itemPedidoModel import ItemPedidoModel
 
 from Infrastructure.Database.database import Base
 
