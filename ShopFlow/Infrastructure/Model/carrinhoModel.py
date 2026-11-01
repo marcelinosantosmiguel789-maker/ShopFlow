@@ -1,14 +1,23 @@
-from decimal import Decimal
+from typing import TYPE_CHECKING
 
-from sqlalchemy import Numeric, String
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import ForeignKey, Numeric, String
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from Infrastructure.Database.database import Base
+
+if TYPE_CHECKING:
+    from Infrastructure.Model.itemCarrinhoModel import ItemCarrinhoModel
+
 
 class CarrinhoModel(Base):
     __tablename__ = "carrinhos"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    usuarioId: Mapped[int] = mapped_column(ForeignKey("usuario_Id"))
-    itens: Mapped[str] = mapped_column(String(255), nullable=True)
+    usuario_id: Mapped[int] = mapped_column(
+        ForeignKey("usuarios.id"),
+        nullable=False,
+    )
+    itens: Mapped[list["ItemCarrinhoModel"]] = relationship(
+        back_populates="carrinho",
+        cascade="all, delete-orphan",
+    )

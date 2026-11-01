@@ -17,10 +17,14 @@ class SqlAlchemyProdutoRepository(ProdutoRepository):
             "descricao": cls._value(produto_data, "descricao"),
             "preco": cls._value(produto_data, "preco"),
             "estoque": cls._value(produto_data, "estoque"),
-            "categoriaId": cls._value(
+            "categoria_id": cls._value(
                 produto_data,
-                "categoriaId",
-                cls._value(produto_data, "categoriaID"),
+                "categoria_id",
+                cls._value(
+                    produto_data,
+                    "categoriaId",
+                    cls._value(produto_data, "categoriaID"),
+                ),
             ),
         }
 

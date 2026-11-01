@@ -1,10 +1,13 @@
 from decimal import Decimal
+from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, Integer, Numeric
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from Infrastructure.Database.database import Base
-from Infrastructure.Model.pedidoModel import PedidoModel
+
+if TYPE_CHECKING:
+    from Infrastructure.Model.pedidoModel import PedidoModel
 
 
 class ItemPedidoModel(Base):
@@ -16,12 +19,12 @@ class ItemPedidoModel(Base):
     )
 
     pedido_id: Mapped[int] = mapped_column(
-        ForeignKey("pedidos_id"),
+        ForeignKey("pedidos.id"),
         nullable=False
     )
 
     produto_id: Mapped[int] = mapped_column(
-        ForeignKey("produtos_id"),
+        ForeignKey("produtos.id"),
         nullable=False
     )
 
