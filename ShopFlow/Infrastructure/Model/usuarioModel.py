@@ -5,7 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from Infrastructure.Database.database import Base
 
-class usuarioModel(Base):
+class UsuarioModel(Base):
     __tablename__ = "Usuario"
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     nome: Mapped[str] = mapped_column(nullable=False)

@@ -16,7 +16,7 @@ class PedidoModel(Base):
     )
 
     usuario_id: Mapped[int] = mapped_column(
-        ForeignKey("usuarios.id"),
+        ForeignKey("usuarios_id"),
         nullable=False
     )
 

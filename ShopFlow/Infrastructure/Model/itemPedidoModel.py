@@ -16,12 +16,12 @@ class ItemPedidoModel(Base):
     )
 
     pedido_id: Mapped[int] = mapped_column(
-        ForeignKey("pedidos.id"),
+        ForeignKey("pedidos_id"),
         nullable=False
     )
 
     produto_id: Mapped[int] = mapped_column(
-        ForeignKey("produtos.id"),
+        ForeignKey("produtos_id"),
         nullable=False
     )
 

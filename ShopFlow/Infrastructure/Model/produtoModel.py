@@ -2,7 +2,8 @@ from decimal import Decimal
 
 from sqlalchemy import Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column
-
+from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey, Numeric, String
 from Infrastructure.Database.database import Base
 
 class ProdutoModel(Base):
@@ -13,4 +14,4 @@ class ProdutoModel(Base):
     descricao: Mapped[str] = mapped_column(String(255), nullable=True)
     preco: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     estoque: Mapped[int] = mapped_column(nullable=False)
-    categoriaId: Mapped[int] = mapped_column(nullable=False)
+    categoriaId: Mapped[int] = mapped_column(ForeignKey("categoria_Id"))
