@@ -16,6 +16,7 @@ class CarrinhoModel(Base):
     usuario_id: Mapped[int] = mapped_column(
         ForeignKey("usuarios.id"),
         nullable=False,
+        unique=True
     )
     itens: Mapped[list["ItemCarrinhoModel"]] = relationship(
         back_populates="carrinho",
