@@ -6,4 +6,5 @@ class ProdutoCreateDTO(baseModel):
     nome: str
     descricao: str
     preco: float
-    quantidade: int
+    estoque: int
+    
