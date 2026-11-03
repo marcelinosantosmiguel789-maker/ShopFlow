@@ -1,10 +1,11 @@
+from unicodedata import decimal
+
 from pydantic import BaseModel as baseModel
 
 
 class ProdutoCreateDTO(baseModel):
-    id: int
     nome: str
     descricao: str
-    preco: float
+    preco: decimal.Decimal
     estoque: int
-    
+
